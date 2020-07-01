@@ -21,8 +21,8 @@ use Illuminate\Support\Facades\Route;
 //    return view('contact');
 //});
 
-Route::view('/', 'home');
-Route::view('/contact', 'contact');
+Route::view('/', 'home')->name('home');
+Route::view('/contact', 'contact')->name('contact');
 
 Route::get('/blog-post/{id}/{welcome?}', function ($id, $welcome = 1) {
     $pages = [
@@ -39,5 +39,5 @@ Route::get('/blog-post/{id}/{welcome?}', function ($id, $welcome = 1) {
         'data' => $pages[$id],
         'welcome' => $welcomes[$welcome],
     ]);
-});
+})->name('blog-post');
 
